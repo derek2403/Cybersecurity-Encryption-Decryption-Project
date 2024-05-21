@@ -1,0 +1,81 @@
+.content{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content div{
+    background-color: rgb(142, 142, 255);
+    height: 550px;
+    width: 20%;
+    border-radius: 9px;
+    color: white;
+}
+
+.content h1{
+    text-align: center;
+    margin-bottom: 60px;
+    color: rgba(0, 0, 0, 0.819);
+}
+
+.content img{
+    width: 50%;
+    margin-left: 24%;
+    margin-bottom: 30px;
+}
+
+.content h2{
+    text-align: center;
+    margin: 0px;
+}
+
+.content p{
+    text-align: justify;
+    margin: 0px 30px;
+    margin-bottom: 60px;
+}
+
+.demo1 p{
+    margin-bottom: 80px;
+}
+
+.content a{
+    text-decoration: none;
+    padding: 9px 15px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 5px;
+    margin-left: 27%;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.content a:hover{
+    background-color: rgb(224, 224, 224);
+}
+
+.demo1,
+.demo2,
+.demo3{
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.demo2{
+    animation-delay: 1s;
+}
+
+.demo3{
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        margin-left: -30px; /* Adjust the initial position */
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0; /* Adjust the final position */
+    }
+}

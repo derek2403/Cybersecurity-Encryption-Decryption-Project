@@ -1,0 +1,144 @@
+h1{
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sender{
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.receiver-desc{
+    display: flex;
+    align-items: center;
+    background-color: yellow;
+}
+
+.receiver-desc img{
+    height: 45px;
+    width: 45px;
+    margin: 10px;
+}
+
+.receiver-desc p{
+    font-size: 20px;
+}
+
+.sender-output-container{
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.msg-row{
+    display: flex;
+}
+
+.empty{
+    flex: 1;
+}
+
+.sender-output{
+    max-width:300px;
+}
+
+
+.sender-output p{
+    padding: 9px;
+    background-color: rgb(139, 139, 237);
+    margin-right: 20px;
+    margin-left: 100px;
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.receiver-output-container{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.receiver-output{
+    max-width:300px;
+}
+
+.receiver-output p{
+    padding: 9px;
+    background-color: rgb(211, 211, 211);
+    margin-right: 100px;
+    margin-left: 20px;
+    color: rgb(139, 139, 237);
+    border-radius: 15px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+}
+
+.sender-input{
+    display: flex;
+}
+
+.sender-input textarea{
+    height: 40px;
+    font-size: 15px;
+    flex: 1;
+}
+
+.sender-input button{
+    width: 70px;
+}
+
+
+
+
+.receiver{
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.sender-desc{
+    display: flex;
+    align-items: center;
+    background-color: purple;
+}
+
+.sender-desc img{
+    height: 45px;
+    width: 45px;
+    margin: 10px;
+}
+
+.sender-desc p{
+    font-size: 20px;
+    color: white;
+}
+
+.receiver-output{
+    max-width:300px;
+}
+
+.receiver-input{
+    display: flex;
+}
+
+.receiver-input textarea{
+    display: none;
+}

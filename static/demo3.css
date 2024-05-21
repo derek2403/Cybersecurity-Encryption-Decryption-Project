@@ -1,0 +1,118 @@
+h1{
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.content textarea{
+    width: 100%;
+}
+
+.content button{
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.content img{
+    width: 100%;
+    display: relative;
+}
+
+.patient-register{
+    width: 40%;
+}
+
+.register-laptop{
+    position: relative;
+}
+
+.register-laptop input{
+    width: 100%;
+}
+
+.register-laptop form{
+    width: 50%;
+    position: absolute;
+    top: 13%;
+    left: 24%;
+    color: black;
+}
+
+.patient-storage{
+    width: 30%;
+}
+
+h2{
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.patient-list-container{
+    width: 25%;
+}
+
+.patient-list{
+    background-color: white;
+    color: black;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 3px 3px 10px white;
+    height: 75%;
+}
+
+.patient-list h4{
+    text-decoration: underline;
+    color: black;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.patient-storage {
+    width: 25%;
+    background-color: white;
+    color: black;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 3px 3px 10px white;
+}
+
+.patient-storage p {
+    word-wrap: break-word;
+    max-width: 80%;
+    margin: auto;
+}
+
+h2 {
+    text-decoration: underline;
+    color: black;
+    text-align: center;
+    padding-top: 5px;
+    margin: auto;
+}
+
+.patient-list-container {
+    width: 25%;
+}
+
+.patient-list {
+    background-color: white;
+    color: black;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 3px 3px 10px white;
+    height: 75%;
+}
+
+.patient-list h4 {
+    text-decoration: underline;
+    color: black;
+    text-align: center;
+    padding-top: 5px;
+}

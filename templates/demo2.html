@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/demo2.css">
+    <link rel="stylesheet" href="../static/header.css">
+    <link rel="icon" href="/static/icon.png" type="image/x-icon">
+    <title>Demo 2: Financial Data Breach Demo</title>
+</head>
+<body>
+    <header>
+        <div class="nav-img">
+            <a href="/"><img src="/static/InsightLogo.png" alt="InsightInnovators"></a>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/encrypt">ENCRYPT</a></li>
+                <li><a href="/decrypt">DECRYPT</a></li>
+            </ul>
+        </div>
+    </header>
+    <h1 id="title">Demo 2: Financial Data Breach Demo</h1>
+    <div id="accountDetails">
+        <h2>Accounts</h2>
+        <ul id="accountsList"></ul>
+        <button id="btn" onclick="showSolution()">Show Solution</button>
+    </div>
+    <script>
+        fetch('/accounts')
+            .then(response => response.json())
+            .then(accounts => {
+                const accountsList = document.getElementById('accountsList');
+                accounts.forEach(account => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Account Number: ${account.account_number} || Balance: $${account.balance.toFixed(2)}`;
+                    accountsList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+        function showSolution() {
+            document.getElementById('accountDetails').innerHTML = '';
+
+            const message = document.createElement('p');
+            message.textContent = 'To prevent financial data breaches, login is required.';
+            document.getElementById('accountDetails').appendChild(message);
+
+            const loginForm = document.createElement('form');
+            loginForm.method = 'POST';
+            loginForm.action = '/login';
+            loginForm.innerHTML = `
+                <label for="account_number">Account Number:</label><br>
+                <input type="text" id="account_number" name="account_number"><br><br>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+                <input type="submit" id="login" value="Login">
+            `;
+            document.getElementById('accountDetails').appendChild(loginForm);
+        }
+    </script>
+</body>
+</html>

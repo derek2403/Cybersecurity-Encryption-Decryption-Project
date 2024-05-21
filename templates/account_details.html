@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="../static/account_details.css">
+    <link rel="stylesheet" href="/static/header.css">
+    <link rel="icon" href="/static/icon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="nav-img">
+            <a href="/"><img src="/static/InsightLogo.png" alt="InsightInnovators"></a>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/encrypt">ENCRYPT</a></li>
+                <li><a href="/decrypt">DECRYPT</a></li>
+            </ul>
+        </div>
+    </header>
+    <h1>Welcome to Insight Bank</h1>
+    <p>Account Number: {{ account_number }}</p>
+    <p>Balance: {{ balance }}</p>
+</body>
+</html>

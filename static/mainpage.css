@@ -1,0 +1,126 @@
+body{
+    background-color: rgb(0, 0, 35);
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-desc{
+    flex: 1;
+    margin-left: 39px;
+}
+
+.content-desc h1{
+    font-size:50px;
+    margin: 0;
+    margin-bottom: 12px;
+    animation: word-fading 1.5s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.content-desc h2{
+    color: rgb(179, 179, 255);
+    font-size: 39px;
+    margin: 0;
+    margin-bottom: 54px;
+    animation: word-fading 1.5s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+.content-desc p{
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 17px;
+    animation: word-fading 1.5s ease forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+
+.content-desc a {
+    padding: 10px 15px;
+    background-color: white;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: word-fading 1.5s ease forwards;
+    animation-delay: 2.5s;
+    opacity: 0;
+}
+
+.content-desc a.try-btn{
+    background-color:rgb(179, 179, 255);
+    color: black;
+}
+
+.content-desc a.try-btn:hover{
+    background-color:rgb(142, 142, 255);
+}
+
+.content-desc a.contact-btn{
+    background-color: transparent;
+    border: 2px solid rgb(179, 179, 255);
+    color: rgb(179, 179, 255);
+}
+
+.content-desc a.contact-btn:hover{
+    background-color: rgb(213, 211, 255);
+    color: black;
+}
+
+@keyframes word-fading {
+    0% {
+        opacity: 0;
+        margin-left: -20px; 
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0; 
+    }
+}
+
+.content-img{
+    width: 35%;
+    margin: 0px 50px;
+}
+
+.content-img img{
+    height: 100%;
+    width: auto;
+    animation: img-fading 2.1s ease forwards;
+}
+
+.content-img img:hover{
+    animation: img-rotating 2.1s ease forwards;
+}
+
+@keyframes img-fading {
+    0%{
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+
+    100%{
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes img-rotating {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}

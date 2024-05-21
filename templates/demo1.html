@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/header.css">
+    <link rel="stylesheet" href="/static/demo1.css">
+    <link rel="icon" href="/static/icon.png" type="image/x-icon">
+    <title>Demo 1</title>
+</head>
+<body>
+    <header>
+        <div class="nav-img">
+            <a href="/"><img src="/static/InsightLogo.png" alt="InsightInnovators"></a>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/encrypt">ENCRYPT</a></li>
+                <li><a href="/decrypt">DECRYPT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    
+    <h1>Demo 1: Encryption Demo</h1>
+    <p style="margin-left: 20px; font-size: larger; color: brown;">In this demo, we assume Alan as a receiver and Veron as a sender.</p>
+    <div style="margin-left: 20px;">
+        <label for="toggleEncryption">Toggle Encryption:</label>
+        <input type="checkbox" id="toggleEncryption">
+    </div>
+    <div class="content">
+        <div>
+            <h2>Sender Perspective</h2>
+            <div class="sender">
+                <div class="receiver-desc">
+                    <img src="/static/alan.png" alt="Alan">
+                    <p>Alan</p>
+                </div>              
+                <div class="sender-output-container js-sender-output-container"></div>     
+                <div class="sender-input">
+                    <textarea id="senderMessage" rows="4" cols="30" class="js-sendermsg"></textarea>
+                    <button onclick="sendMessage()" class="js-sendbtn">Send</button>
+                </div>
+            </div>    
+        </div>
+        <div>
+            <p style="font-size: xx-large; margin: 0px 30px;">&rarr;</p>
+        </div>
+        <div>
+            <h2>Server Side Perspective</h2>
+            <textarea id="serverMessage" rows="4" cols="35" readonly></textarea>
+        </div>
+        <div>
+            <p style="font-size: xx-large; margin: 0px 30px;">&rarr;</p>
+        </div>
+        <div>
+            <h2>Receiver Side Perspective</h2>
+            <div class="receiver">
+                <div class="sender-desc">
+                    <img src="/static/veron.png" alt="Veron">
+                    <p>Veron</p>
+                </div>                
+                <div class="receiver-output-container js-receiver-output-container">                  
+                </div>
+                <div class="receiver-input">
+                    <textarea id="receiverMessage" rows="4" cols="30" class="js-receivermsg" readonly></textarea>
+                </div>
+                
+            </div>    
+        </div>
+
+    </div>
+    
+
+    <script>
+        function sendMessage() {
+            const senderMessage = document.getElementById('senderMessage').value;
+            const toggleEncryption = document.getElementById('toggleEncryption').checked;
+            
+            if (toggleEncryption) {
+                fetch('/encrypt_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        message: senderMessage
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('serverMessage').value = data.encrypted_data;
+                    document.getElementById('receiverMessage').value = senderMessage;
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                document.getElementById('serverMessage').value = senderMessage;
+                document.getElementById('receiverMessage').value = senderMessage;
+            }
+        }        
+
+        //chatbox
+        const inputDisplay = document.querySelector(".js-sender-output-container");
+        const inputMsg = document.querySelector(".js-sendermsg");
+        const inputBtn = document.querySelector(".js-sendbtn");
+        const outputDisplay = document.querySelector(".js-receiver-output-container");
+        const outputMsg = document.querySelector(".js-receivermsg");
+
+        inputBtn.addEventListener("click", () => {
+            inputDisplay.innerHTML += 
+            `<div class="msg-row">
+                <div class="empty"></div>
+                <div class="sender-output js-sender-output"><p>${inputMsg.value}</p></div>
+            </div> `
+            inputMsg.value = ''
+
+            outputDisplay.innerHTML += 
+            `<div class="msg-row">
+                <div class="receiver-output js-receiver-output"><p>${outputMsg.value}</p></div>
+                <div class="empty"></div>
+            </div> `
+        });
+    </script>   
+</body>
+</html>

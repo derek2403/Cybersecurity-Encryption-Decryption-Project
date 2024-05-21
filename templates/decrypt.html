@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/header.css">
+    <link rel="stylesheet" href="../static/decrypt.css">
+    <link rel="icon" href="/static/icon.png" type="image/x-icon">
+    <title>Data Decryption</title>
+</head>
+<body>
+    <header>
+        <div class="nav-img">
+            <a href="/"><img src="/static/InsightLogo.png" alt="InsightInnovators"></a>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/encrypt">ENCRYPT</a></li>
+                <li><a href="/decrypt">DECRYPT</a></li>
+            </ul>
+        </div>
+    </header>
+    <h1>Data Decryption</h1>
+    <form id="decrypt-form">
+        <label for="encrypted_data">Enter Encrypted Data:</label>
+        <textarea id="encrypted_data" name="encrypted_data" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Decrypt</button>
+    </form>
+    <div id="result">
+        <h2>Decrypted Data:</h2>
+        <pre id="decrypted-data"></pre>
+    </div>
+
+    <script>
+        document.getElementById('decrypt-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/decrypt_data', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('decrypted-data').textContent = result.decrypted_data;
+        });
+    </script>
+</body>
+</html>

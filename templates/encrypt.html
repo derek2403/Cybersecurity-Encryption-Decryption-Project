@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/encrypt.css">
+    <link rel="stylesheet" href="../static/header.css">
+    <link rel="icon" href="/static/icon.png" type="image/x-icon">
+    <title>Data Leak Detection</title>
+</head>
+<body>
+    <header>
+        <div class="nav-img">
+            <a href="/"><img src="/static/InsightLogo.png" alt="InsightInnovators"></a>
+        </div>
+        <div class="nav-list">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/encrypt">ENCRYPT</a></li>
+                <li><a href="/decrypt">DECRYPT</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <h1>Sensitive Data Detection and Data Encryption</h1>
+    <form id="detect-form">
+        <label for="data">Enter Data:</label>
+        <textarea id="data" name="data" rows="4" cols="50"></textarea>
+        <button type="submit">Detect</button>
+    </form>
+
+    <div class="detect-info">
+        <div id="result">
+            <h2>Result:</h2>
+            <pre id="detection-result"></pre>
+        </div>
+        <div id="encrypted-data">
+            <h2>Encrypted Data:</h2>
+            <pre id="encrypted-data-result"></pre>
+        </div>
+        <div id="compliance-check">
+            <h2>Compliance Check:</h2>
+            <pre id="compliance-check-result"></pre>
+        </div>
+        <div id="incident-response">
+            <h2>Incident Response:</h2>
+            <pre id="incident-response-result"></pre>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('detect-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/detect', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('detection-result').textContent = result.result;
+            document.getElementById('encrypted-data-result').textContent = result.encrypted_data;
+            document.getElementById('compliance-check-result').textContent = result.compliance_check;
+            document.getElementById('incident-response-result').textContent = result.incident_response;
+        });
+    </script>
+</body>
+</html>
